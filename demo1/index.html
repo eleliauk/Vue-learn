@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 1.2插值表达式 -->
+       <p>{{title}}</p> 
+       <p> {{content}}</p> 
+       <p>{{output()}}</p>
+       <p>{{outputComputed}}</p>
+       <p>{{outputComputed}}</p>
+       <p>{{outputComputed}}</p>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <script>
+        const vm=new Vue({
+            //1.响应式数据与插值表达式
+            el:'#app',
+            data(){
+                return {
+                    title:"这是标题文本",
+                    content:'这是内容文本'
+                }
+            },
+            //1.3 methods 函数
+            methods:{
+                output(){
+                    return '标题是'+this.title+','+'内容是'+this.content
+                }
+            },
+            //计算属性 具有缓存性
+            computed:{
+                outputComputed(){
+                    console.log(1)
+                    return '标题是'+this.title+','+'内容是'+this.content
+                }
+            }
+        })
+    </script>
+</body>
+</html>
